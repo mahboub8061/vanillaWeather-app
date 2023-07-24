@@ -3,12 +3,11 @@ body {
 }
 .weather-app {
   max-width: 650px;
-  margin: 30px auto;
-  padding: 40wpx;
+  margin: 0 auto;
 }
 .container {
-  margin: 30px auto;
-  padding: 30wpx;
+  margin: 30px 0px auto;
+  padding: 40px;
   border: 1px solid #dadde1;
   border-radius: 5px;
 }
