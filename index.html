@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
     <title>Weather</title>
@@ -12,7 +13,7 @@
     <div class="weather-app">
 
       <div class="container">
-       <h1 class="header">New York</h1>
+       <h1 id="city">New York</h1>
        <div class="row">
         <div class="col-2">
           <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear">
@@ -20,17 +21,18 @@
         </div>
         <div class="col-4 tempreture">
           
-          <strong>12</strong>
+          <strong id="tempreture">12</strong>
           <small>°C|°F</small>
         </div>
           
           <div class="col-4">
             <ul>
-              <li class="explain">Precipitation: 1%</li>
-              <li class="explain">
+              <li class="explain"
+              id="Precipitation">Precipitation: 1%</li>
+              <li class="explain" id="Humidity">
   Humidity: 63%
               </li>
-              <li class="explain">
+              <li class="explain" >
   Wind: 11 km/h
               </li>
             </ul>
@@ -41,8 +43,8 @@
         
         <div class="col-2">
           <h2>Weather</h2>
-          <p>Saturday 09:00</p>
-          <p>Sunny</p>
+          <p id="date">Saturday 09:00</p>
+          <p id="description">Sunny</p>
         </div>
   
        </div>
@@ -79,6 +81,7 @@
         </div>
        </div>
       </div>
+      <small>This Site coded by <a href="https://github.com/mahboub8061">Mahii ghafouri</a></small>
     </div>
 
     <script src="src/app.js"></script>

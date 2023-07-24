@@ -2,9 +2,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 .weather-app {
-  max-width: 600px;
+  max-width: 650px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 40wpx;
+}
+.container {
+  margin: 30px auto;
+  padding: 30wpx;
   border: 1px solid #dadde1;
   border-radius: 5px;
 }
@@ -39,4 +43,8 @@ p {
 h3 {
   font-size: 18px;
   color: #202124;
+}
+small {
+  font-size: 12px;
+  line-height: 1;
 }
