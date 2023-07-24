@@ -1,5 +1,4 @@
 function displayTempreture(response) {
-  console.log(response.data);
   let tempretureElement = document.querySelector("#tempreture");
   let humidity = document.querySelector("#Humidity");
   let wind = document.querySelector("#wind");
@@ -23,7 +22,7 @@ function displayTempreture(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   cityElement.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].main;
-  console.log(now.getDay());
+
   day.innerHTML = Days[now.getDay()];
   timeElement.innerHTML = ` ${hours}:${minut}`;
   icon.setAttribute(
