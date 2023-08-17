@@ -17,14 +17,14 @@ function displayTempreture(response) {
   ];
   let day = document.querySelector("#day");
   let hours = now.getHours();
-  if (hours < 10) {
-    let hours = `0${hours}`;
-  }
+  // if (hours < 10) {
+  //   let hours = `0${hours}`;
+  // }
   displayForecast();
   let minut = now.getMinutes();
-  if (minut < 10) {
-    let minut = `0${minut}`;
-  }
+  // if (minut < 10) {
+  //   let minut = `0${minut}`;
+  // }
   let timeElement = document.querySelector("#time");
   let icon = document.querySelector("#icon");
 
@@ -47,6 +47,7 @@ function displayTempreture(response) {
     fahrenheit.classList.add("active");
     let temp = document.querySelector("#tempreture");
     temp.innerHTML = Math.round(response.data.main.temp);
+    console.log(temp);
   }
   function showFahrenheitTemp(event) {
     event.preventDefault();
