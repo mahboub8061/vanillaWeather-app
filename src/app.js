@@ -27,11 +27,19 @@ function displayTempreture(response) {
   }
   let timeElement = document.querySelector("#time");
   let icon = document.querySelector("#icon");
+  function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "68c948a4336a2211153a5fdb7bfbe8f9";
+    let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    console.log(apiUrl);
+  }
 
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
   cityElement.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].main;
+
+  getForecast(response.data.coord);
 
   day.innerHTML = Days[now.getDay()];
   timeElement.innerHTML = ` ${hours}:${minut}`;
