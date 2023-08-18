@@ -65,14 +65,6 @@ let fahrenheit = document.querySelector("#fahrenheit");
 Centigrade.addEventListener("click", ShowTempreture);
 fahrenheit.addEventListener("click", showFahrenheitTemp);
 // forecast part
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  console.log(date);
-  let weekDay = date.getDay();
-  console.log.apply(weekDay);
-  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  return weekDays[weekDay];
-}
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
@@ -80,29 +72,20 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast(response) {
-  let forecast = response.data.daily;
+function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-
-  forecast.forEach(function (day, index) {
-    if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        ` 
-          <div class="col-2 forecast">
-            <h3 class="forecast-day">${formatDay(day.dt)}</h3>
-            <img src="https://openweathermap.org/img/wn/${
-              day.weather[0].icon
-            }@2x.png" alt="">
-            <span class="forecast-temp-max"> ${Math.round(
-              day.temp.max
-            )}°</span><span class="forecast-temp-min">${Math.round(
-          day.temp.min
-        )}°</span>
-          </div>
-         `;
-    }
+  let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  day.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+        <div class="col-2 forecast">
+          <h3 class="forecast-day">${day}</h3>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII=" alt="">
+          <span class="forecast-temp-max">31°</span><span class="forecast-temp-min">21°</span>
+        </div>
+       `;
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
