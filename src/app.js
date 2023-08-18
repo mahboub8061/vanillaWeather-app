@@ -51,19 +51,11 @@ function ShowTempreture(event) {
   temp.innerHTML = Math.round(response.data.main.temp);
   console.log(temp);
 }
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#tempreture");
-  fahrenheit.classList.remove("active");
-  Centigrade.classList.add("active");
-  temp.innerHTML = Math.round(
-    (Math.round(response.data.main.temp) * 9) / 5 + 32
-  );
-}
+
 let Centigrade = document.querySelector("#centigrade");
-let fahrenheit = document.querySelector("#fahrenheit");
+
 Centigrade.addEventListener("click", ShowTempreture);
-fahrenheit.addEventListener("click", showFahrenheitTemp);
+
 // forecast part
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
